@@ -52,7 +52,7 @@
                                                     <div class="cart-plus-minus">
                                                         <div class="dec qtybutton" th:attr="data-id=${item.id}">-</div>
                                                         <input class="cart-plus-minus-box" type="text" name="qtybutton" th:value="${item.quantity}" />
-                                                        <div class="inc qtybutton increase-button" th:attr="data-id=${item.id}">+</div>
+                                                        <div class="inc qtybutton increase-button" style="z-index: 1000" th:attr="data-id=${item.id}">+</div>
                                                     </div>
                                                 </td>
                                                 <td class="product-subtotal" th:text="${item.price * item.quantity}"></td>
@@ -118,9 +118,8 @@
                 debugger
                 const subtotalDOM = productQuantity.nextElementSibling;
                 const decreaseButton = productQuantity.querySelector('.dec.qtybutton');
-                const increaseButton = productQuantity.querySelector('.increase-button');
+                const increaseButton = productQuantity.querySelector('.inc.qtybutton.increase-button');
                 decreaseButton.addEventListener('click', event => {
-                    debugger
                     const {id} = event.target.dataset;
                     fetch('http://localhost:8080/cart/decrease/' + id)
                         .then(result => result.json())
@@ -130,7 +129,6 @@
                 });
 
                 increaseButton.addEventListener('click', event => {
-                    debugger
                     const {id} = event.target.dataset;
                     fetch('http://localhost:8080/cart/increase/' + id)
                         .then(result => result.json())
