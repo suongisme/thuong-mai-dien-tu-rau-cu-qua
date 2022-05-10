@@ -1,0 +1,79 @@
+<header class="main-header">
+  <div class="header-navigation sticky-nav">
+    <div class="container-fluid">
+      <div class="row">
+        <!-- Logo Start -->
+        <div class="col-md-2 col-sm-2">
+          <div class="logo">
+            <a th:href="@{/}"><img th:src="@{/images/logo/logo.jpg}" th:alt="logo.jpg" /></a>
+          </div>
+        </div>
+        <!-- Logo End -->
+        <!-- Navigation Start -->
+        <div class="col-md-10 col-sm-10">
+          <!--Main Navigation Start -->
+          <div class="main-navigation d-none d-lg-block">
+            <ul>
+              <li class="menu-dropdown">
+                <a th:href="@{/}">Home</a>
+              </li>
+              <li class="menu-dropdown">
+                <a th:href="@{/shop}">Shop</a>
+              </li>
+              <li class="menu-dropdown">
+                <a href="#">Pages <i class="ion-ios-arrow-down"></i></a>
+                <ul class="sub-menu">
+                  <li><a th:href="@{/about}">About Page</a></li>
+                  <li><a th:href="@{/wishlist}">Wishlist Page</a></li>
+                  <li><a th:href="@{/cart}">Cart Page</a></li>
+                  <li><a th:href="@{/login}">Login & Register Page</a></li>
+                  <li><a th:href="@{/my-account}">My Account Page</a></li>
+                </ul>
+              </li>
+              <li class="menu-dropdown">
+                <a th:href="@{/blog}">Blog</i></a>
+              </li>
+              <li><a th:href="@{/contact}">Contact Us</a></li>
+            </ul>
+          </div>
+          <!--Main Navigation End -->
+          <!--Header Bottom Account Start -->
+          <div class="header_account_area">
+            <div class="contact-link">
+              <div class="phone">
+                <p>Call us:</p>
+                <a href="tel:(+800)345678">(+800)345678</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- mobile menu -->
+      <div class="mobile-menu-area">
+        <div class="mobile-menu">
+          <nav id="mobile-menu-active">
+            <ul class="menu-overflow">
+              <li>
+                <a th:href="@{/}">HOME</a>
+              </li>
+              <li>
+                <a th:href="@{/shop}">Shop</a>
+              </li>
+              <li>
+                <a>Pages</a>
+                <ul>
+                  <li><a th:href="@{about}">About Page</a></li>
+                  <li><a th:href="@{wishlist}">Wishlist Page</a></li>
+                </ul>
+              </li>
+              <li>
+                <a th:href="@{/blog}">Blog</a>
+              </li>
+              <li><a th:href="@{/contact}">Contact Us</a></li>
+            </ul>
+          </nav>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>

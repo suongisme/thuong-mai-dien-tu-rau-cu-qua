@@ -1,0 +1,605 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+    <head th:replace="~{/common/head::head}"></head>
+    <body>
+        <div id="main">
+            <header th:replace="~{/common/header::header}"></header>
+            <!-- Header End -->
+            <!-- Slider Arae Start -->
+            <div class="slider-area">
+                <div class="slider-active-3 owl-carousel slider-hm8 owl-dot-style">
+                    <!-- Slider Single Item Start -->
+                    <div class="slider-height-6 d-flex align-items-start justify-content-start bg-img" style="background-image: url(/images/slider-image/sample-1.jpg);">
+                        <div class="container">
+                            <div class="slider-content-1 slider-animated-1 text-left">
+                                <span class="animated">NOT FRIED NOT BAKED</span>
+                                <h1 class="animated">
+                                    Freeze Dried Fruits <br />
+                                    Pineapple Coconut
+                                </h1>
+                                <p class="animated">Free Shipping On Qualified Orders Over $35</p>
+                                <a href="shop-4-column.html" class="shop-btn animated">SHOP NOW</a>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Slider Single Item End -->
+                    <!-- Slider Single Item Start -->
+                    <div class="slider-height-6 d-flex align-items-start justify-content-start bg-img" style="background-image: url(/images/slider-image/sample-2.jpg);">
+                        <div class="container">
+                            <div class="slider-content-1 slider-animated-1 text-left">
+                                <span class="animated">100% NATURAL</span>
+                                <h1 class="animated">
+                                    Organic Fruits <br />
+                                    Summer Drinks
+                                </h1>
+                                <p class="animated">fresh New pack Brusting Fruits</p>
+                                <a href="shop-4-column.html" class="shop-btn animated">SHOP NOW</a>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Slider Single Item End -->
+                </div>
+            </div>
+            <!-- Slider Arae End -->
+            <!-- Static Area Start -->
+            <section class="static-area mtb-60px">
+                <div class="container">
+                    <div class="static-area-wrap">
+                        <div class="row">
+                            <!-- Static Single Item Start -->
+                            <div class="col-lg-3 col-xs-12 col-md-6 col-sm-6">
+                                <div class="single-static pb-res-md-0 pb-res-sm-0 pb-res-xs-0">
+                                    <img th:src="@{/images/icons/static-icons-1.png}" alt="" class="img-responsive" />
+                                    <div class="single-static-meta">
+                                        <h4>Free Shipping</h4>
+                                        <p>On all orders over $75.00</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Static Single Item End -->
+                            <!-- Static Single Item Start -->
+                            <div class="col-lg-3 col-xs-12 col-md-6 col-sm-6">
+                                <div class="single-static pb-res-md-0 pb-res-sm-0 pb-res-xs-0 pt-res-xs-20">
+                                    <img th:src="@{/images/icons/static-icons-2.png}" alt="" class="img-responsive" />
+                                    <div class="single-static-meta">
+                                        <h4>Free Returns</h4>
+                                        <p>Returns are free within 9 days</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Static Single Item End -->
+                            <!-- Static Single Item Start -->
+                            <div class="col-lg-3 col-xs-12 col-md-6 col-sm-6">
+                                <div class="single-static pt-res-md-30 pb-res-sm-30 pb-res-xs-0 pt-res-xs-20">
+                                    <img th:src="@{/images/icons/static-icons-3.png}" alt="" class="img-responsive" />
+                                    <div class="single-static-meta">
+                                        <h4>100% Payment Secure</h4>
+                                        <p>Your payment are safe with us.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Static Single Item End -->
+                            <!-- Static Single Item Start -->
+                            <div class="col-lg-3 col-xs-12 col-md-6 col-sm-6">
+                                <div class="single-static pt-res-md-30 pb-res-sm-30 pt-res-xs-20">
+                                    <img th:src="@{/images/icons/static-icons-4.png}" alt="" class="img-responsive" />
+                                    <div class="single-static-meta">
+                                        <h4>Support 24/7</h4>
+                                        <p>Contact us 24 hours a day</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Static Single Item End -->
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!-- Static Area End -->
+            <!-- Best Sells Area Start -->
+            <section class="best-sells-area mb-30px">
+                <div class="container">
+                    <!-- Section Title Start -->
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="section-title">
+                                <h2>Best Sellers</h2>
+                                <p>Add bestselling products to weekly line up</p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Section Title End -->
+                    <!-- Best Sell Slider Carousel Start -->
+                    <div class="best-sell-slider owl-carousel owl-nav-style">
+                        <p th:if="${products.size == 0}">There are not products</p>
+                        <article th:if="${products.size > 0}" class="list-product" th:each="item: ${products}" th:object="${item}">
+                            <div class="img-block">
+                                <a th:href="@{/single-product/{id}(id =${item.id})}" class="thumbnail">
+                                    <img class="first-img" th:src="*{image}" alt="" />
+                                </a>
+                                <div class="quick-view">
+                                    <a class="quick_view" href="#" data-link-action="quickview" title="Quick view" data-toggle="modal" th:attr="data-target=${'#exampleModal'+item.id}">
+                                        <i class="fas fa-search"></i>
+                                    </a>
+                                </div>
+                            </div>
+                            <ul class="product-flag">
+                                <li class="new">New</li>
+                            </ul>
+                            <div class="product-decs">
+                                <a class="inner-link" href="shop-4-column.html"><span th:text="*{type}"></span></a>
+                                <h2>
+                                    <a th:href="@{/single-product/{id}(id =${item.id})}" class="product-link" th:text="*{name}"></a>
+                                </h2>
+                                <div class="rating-product">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                </div>
+                                <div class="pricing-meta">
+                                    <ul>
+                                        <li class="old-price">€18.90</li>
+                                        <li class="current-price" th:text="*{price}"></li>
+                                        <li class="discount-price">-5%</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="add-to-link">
+                                <ul>
+                                    <li class="cart">
+                                        <a class="cart-btn" th:href="@{/cart/{id}(id = ${item.id}) }">ADD TO CART </a>
+                                    </li>
+                                    <li>
+                                        <a th:href="@{/wishlist/{id}(id = ${item.id})}"><i class="fas fa-heart"></i></a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </article>
+                    </div>
+                    <!-- Best Sells Carousel End -->
+                </div>
+            </section>
+            <!-- Best Sells Slider End -->
+
+            <!-- Category Area Start -->
+            <section class="categorie-area">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <!-- Section Title -->
+                            <div class="section-title mt-res-sx-30px mt-res-md-30px">
+                                <h2>Popular Categories</h2>
+                                <p>Add Popular Categories to weekly line up</p>
+                            </div>
+                            <!-- Section Title -->
+                        </div>
+                    </div>
+                    <!-- Category Slider Start -->
+                    <div class="category-slider owl-carousel owl-nav-style">
+                        <!-- Single item -->
+
+                        <div class="category-item" th:each="category : ${categories}">
+                            <div class="category-list mb-30px">
+                                <div class="category-thumb">
+                                    <a>
+                                        <img th:src="@{${category.image}}" th:alt="${category.name}" />
+                                    </a>
+                                </div>
+                                <div class="desc-listcategoreis">
+                                    <div class="name_categories">
+                                        <h4 th:text="${category.name}"></h4>
+                                    </div>
+                                    <span class="number_product" th:text="${category.products.size + ' products'}"></span>
+                                    <a th:href="@{/shop(idCategory=${category.id})}"> Shop Now <i class="fa-solid fa-circle-arrow-right"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!-- Category Area End  -->
+            <!-- Hot deal area Start -->
+            <section class="hot-deal-area">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-xs-12 col-sm-12 col-md-5 col-lg-5 col-xl-4">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <!-- Section Title -->
+                                    <div class="section-title">
+                                        <h2>Hot Deals</h2>
+                                        <p>Add hot products to weekly line up</p>
+                                    </div>
+                                    <!-- Section Title End-->
+                                </div>
+                            </div>
+                            <!-- Hot Deal Slider Start -->
+                            <div class="hot-deal owl-carousel owl-nav-style">
+                                <article class="list-product" th:each="item: ${products}">
+                                    <div class="img-block">
+                                        <a th:href="@{/single-product/{id}(id = ${item.id})}" class="thumbnail">
+                                            <img class="first-img" th:src="@{${item.image}}" th:alt="${item.name}" />
+                                        </a>
+                                        <div class="quick-view">
+                                            <a class="quick_view" href="#" data-link-action="quickview" title="Quick view" data-toggle="modal" th:attr="data-target=${'#exampleModal'+item.id}" >
+                                                <i class="fas fa-search"></i>
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <ul class="product-flag">
+                                        <li class="new">New</li>
+                                    </ul>
+                                    <div class="product-decs">
+                                        <a class="inner-link" ><span>STUDIO DESIGN</span></a>
+                                        <h2><a th:href="@{/single-product/{id}(id = ${item.id})}" class="product-link" th:text="${item.name}"></a></h2>
+                                        <div class="rating-product">
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                        </div>
+                                        <div class="pricing-meta">
+                                            <ul>
+                                                <li class="old-price" th:text="${item.price}"></li>
+                                                <li class="current-price" th:text="${item.price - (item.price * (item.discount/100))}"></li>
+                                                <li class="discount-price" th:text="${item.discount + '%'}"></li>
+                                            </ul>
+                                        </div>
+                                        <div class="add-to-link">
+                                            <ul>
+                                                <li class="cart"><a class="cart-btn" th:href="@{/cart/{id}(id = ${item.id}) }">ADD TO CART </a></li>
+                                                <li>
+                                                    <a th:href="@{/wishlist/{id}(id = ${item.id}) }"><i class="fas fa-heart"></i></a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </article>
+                            </div>
+                            <!-- Hot Deal Slider End -->
+                        </div>
+                        <!-- New Arrivals Area Start -->
+                        <div class="col-xs-12 col-sm-12 col-md-7 col-lg-7 col-xl-8">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <!-- Section Title -->
+                                    <div class="section-title ml-0px mt-res-sx-30px">
+                                        <h2>New Arrivals</h2>
+                                        <p>Add new products to weekly line up</p>
+                                    </div>
+                                    <!-- Section Title -->
+                                </div>
+                            </div>
+                            <!-- New Product Slider Start -->
+                            <div class="new-product-slider owl-carousel owl-nav-style">
+                                <div class="product-inner-item" th:each="item: ${products}">
+                                    <article class="list-product mb-30px">
+                                        <div class="img-block">
+                                            <a th:href="@{/single-product/{id}(id =${item.id})}" class="thumbnail">
+                                                <img class="first-img" th:src="@{${item.image}}" th:alt="${item.name}" />
+                                            </a>
+                                            <div class="quick-view">
+                                                <a class="quick_view" href="#" data-link-action="quickview" title="Quick view" data-toggle="modal" th:attr="data-target=${'#exampleModal'+item.id}" >
+                                                    <i class="fas fa-search"></i>
+                                                </a>
+                                            </div>
+                                        </div>
+                                        <ul class="product-flag">
+                                            <li class="new">New</li>
+                                        </ul>
+                                        <div class="product-decs">
+                                            <a class="inner-link" href="shop-4-column.html"><span>STUDIO DESIGN</span></a>
+                                            <h2><a th:href="@{/single-product/{id}(id =${item.id})}" class="product-link" th:text="${item.name}"></a></h2>
+                                            <div class="rating-product">
+                                                <i class="fas fa-star"></i>
+                                                <i class="fas fa-star"></i>
+                                                <i class="fas fa-star"></i>
+                                                <i class="fas fa-star"></i>
+                                                <i class="fas fa-star"></i>
+                                            </div>
+                                            <div class="pricing-meta">
+                                                <ul>
+                                                    <li class="old-price" th:text="${item.price}"></li>
+                                                    <li class="current-price" th:text="${item.price - (item.price * (item.discount/100))}"></li>
+                                                    <li class="discount-price" th:text="${item.discount + '%'}"></li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                        <div class="add-to-link">
+                                            <ul>
+                                                <li class="cart"><a class="cart-btn" th:href="@{/cart/{id}(id = ${item.id}) }">ADD TO CART </a></li>
+                                                <li>
+                                                    <a th:href="@{/wishlist/{id}(id = ${item.id})}"><i class="fas fa-heart"></i></a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </article>
+                                </div>
+                            </div>
+                            <!-- Product Slider End -->
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!-- Hot Deal Area End -->
+            <!-- Banner Area Start -->
+            <div class="banner-area">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-3 col-xs-12">
+                            <div class="banner-wrapper">
+                                <a href="shop-4-column.html"><img th:src="@{/images/banner-image/1.jpg}" alt="" /></a>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-xs-12 mt-res-sx-30px">
+                            <div class="banner-wrapper">
+                                <a href="shop-4-column.html"><img th:src="@{/images/banner-image/2.jpg}" alt="" /></a>
+                            </div>
+                        </div>
+                        <div class="col-md-3 col-xs-12 mt-res-sx-30px">
+                            <div class="banner-wrapper">
+                                <a href="shop-4-column.html"><img th:src="@{/images/banner-image/3.jpg}" alt="" /></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Banner Area End -->
+            <!-- Feature Area Start -->
+            <section class="feature-area">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <!-- Section Title -->
+                            <div class="section-title">
+                                <h2>Featured Products</h2>
+                                <p>Add products to weekly line up</p>
+                            </div>
+                            <!-- Section Title -->
+                        </div>
+                    </div>
+                    <!-- Feature Slider Start -->
+                    <div class="feature-slider owl-carousel owl-nav-style">
+                        <div class="feature-slider-item" th:each="item: ${products}">
+                            <article class="list-product">
+                                <div class="img-block">
+                                    <a th:href="@{/single-product/{id}(id =${item.id})}" class="thumbnail">
+                                        <img class="first-img" th:src="@{${item.image}}" th:alt="${item.name}" />
+                                    </a>
+                                    <div class="quick-view">
+                                        <a class="quick_view" href="#" data-link-action="quickview" title="Quick view" data-toggle="modal" th:attr="data-target=${'#exampleModal'+item.id}" >
+                                            <i class="fas fa-search"></i>
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="product-decs">
+                                    <a class="inner-link" href="shop-4-column.html"><span>STUDIO DESIGN</span></a>
+                                    <h2><a th:href="@{/single-product/{id}(id =${item.id})}" class="product-link" th:text="${item.name}"></a></h2>
+                                    <div class="rating-product">
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                    </div>
+                                    <div class="pricing-meta">
+                                        <ul>
+                                            <li class="old-price not-cut" th:text="${item.price}"></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </article>
+                        </div>
+                    </div>
+                    <!-- Feature Slider End -->
+                </div>
+            </section>
+            <!-- Feature Area End -->
+            <!-- Banner Area 2 Start -->
+            <div class="banner-area-2">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="banner-inner">
+                                <a href="shop-4-column.html"><img th:src="@{/images/banner-image/4.jpg}" alt="" /></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Banner Area 2 End -->
+            <!-- Recent Add Product Area Start -->
+            <section class="recent-add-area">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <!-- Section Title -->
+                            <div class="section-title">
+                                <h2>Recently Added</h2>
+                                <p>Add products to weekly line up</p>
+                            </div>
+                            <!-- Section Title -->
+                        </div>
+                    </div>
+                    <!-- Recent Product slider Start -->
+                    <div class="recent-product-slider owl-carousel owl-nav-style">
+                        <article class="list-product" th:each="item: ${products}">
+                            <div class="img-block">
+                                <a th:href="@{/single-product/{id}(id =${item.id})}" class="thumbnail">
+                                    <img class="first-img" th:src="@{${item.image}}" th:alt="${item.name}" />
+                                </a>
+                                <div class="quick-view">
+                                    <a class="quick_view" href="#" data-link-action="quickview" title="Quick view" data-toggle="modal" th:attr="data-target=${'#exampleModal'+item.id}">
+                                        <i class="fas fa-search"></i>
+                                    </a>
+                                </div>
+                            </div>
+                            <ul class="product-flag">
+                                <li class="new">New</li>
+                            </ul>
+                            <div class="product-decs">
+                                <a class="inner-link" href="shop-4-column.html"><span>STUDIO DESIGN</span></a>
+                                <h2><a th:href="@{/single-product/{id}(id =${item.id})}" class="product-link" th:text="${item.name}"></a></h2>
+                                <div class="rating-product">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                </div>
+                                <div class="pricing-meta">
+                                    <ul>
+                                        <li class="old-price" th:text="${item.price}"></li>
+                                        <li class="current-price" th:text="${item.price - (item.price * (item.discount/100))}"></li>
+                                        <li class="discount-price" th:text="${item.discount + '%'}"></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="add-to-link">
+                                <ul>
+                                    <li class="cart"><a class="cart-btn" th:href="@{/cart/{id}(id = ${item.id}) }">ADD TO CART </a></li>
+                                    <li>
+                                        <a th:href="@{/wishlist/{id}(id = ${item.id}) }"><i class="fas fa-heart"></i></a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </article>
+                    </div>
+                    <!-- Recent product slider end -->
+                </div>
+            </section>
+            <!-- Recent product area end -->
+            <!-- Brand area start -->
+            <div class="brand-area">
+                <div class="container">
+                    <div class="brand-slider owl-carousel owl-nav-style owl-nav-style-2">
+                        <div class="brand-slider-item">
+                            <a href="#"><img th:src="@{/images/brand-logo/1.jpg}" alt="" /></a>
+                        </div>
+                        <div class="brand-slider-item">
+                            <a href="#"><img th:src="@{/images/brand-logo/2.jpg}" alt="" /></a>
+                        </div>
+                        <div class="brand-slider-item">
+                            <a href="#"><img th:src="@{/images/brand-logo/3.jpg}" alt="" /></a>
+                        </div>
+                        <div class="brand-slider-item">
+                            <a href="#"><img th:src="@{/images/brand-logo/4.jpg}" alt="" /></a>
+                        </div>
+                        <div class="brand-slider-item">
+                            <a href="#"><img th:src="@{/images/brand-logo/5.jpg}" alt="" /></a>
+                        </div>
+                        <div class="brand-slider-item">
+                            <a href="#"><img th:src="@{/images/brand-logo/1.jpg}" alt="" /></a>
+                        </div>
+                        <div class="brand-slider-item">
+                            <a href="#"><img th:src="@{/images/brand-logo/2.jpg}" alt="" /></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Brand area end -->
+            <footer th:replace="~{/common/footer::footer}" ></footer>
+        </div>
+
+        <!-- Modal -->
+        <div class="modal fade" th:id="${'exampleModal'+item.id}" tabindex="-1" role="dialog" th:each="item: ${products}">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">x</span></button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="row">
+                            <div class="col-md-5 col-sm-12 col-xs-12">
+                                <div class="tab-content quickview-big-img">
+                                    <div id="pro-1" class="tab-pane fade show active">
+                                        <img th:src="@{ ${item.image}}" alt="" />
+                                    </div>
+                                </div>
+                                <!-- Thumbnail Large Image End -->
+                                <!-- Thumbnail Image End -->
+                                <div class="quickview-wrap mt-15">
+                                    <div class="quickview-slide-active owl-carousel nav owl-nav-style owl-nav-style-2" role="tablist">
+                                        <a class="active" data-toggle="tab" href="#pro-1"><img th:src="@{${item.image}}" th:alt="${item.name}" /></a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-7 col-sm-12 col-xs-12">
+                                <div class="product-details-content quickview-content">
+                                    <h2 th:text="${item.name}"></h2>
+                                    <p class="reference">Reference:<span> demo_17</span></p>
+                                    <div class="pro-details-rating-wrap">
+                                        <div class="rating-product">
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                        </div>
+                                        <span class="read-review"><a class="reviews" href="#">Read reviews (1)</a></span>
+                                    </div>
+                                    <div class="pricing-meta">
+                                        <ul>
+                                            <li class="old-price not-cut" th:text="${item.price}"></li>
+                                        </ul>
+                                    </div>
+                                    <p th:text="${item.description}"></p>
+                                    <div class="pro-details-size-color">
+                                        <div class="pro-details-color-wrap">
+                                            <span>Color</span>
+                                            <div class="pro-details-color-content">
+                                                <ul>
+                                                    <li class="blue"></li>
+                                                    <li class="maroon active"></li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="pro-details-quality">
+                                        <div class="cart-plus-minus">
+                                            <input class="cart-plus-minus-box" type="text" name="qtybutton" value="1" min="1" th:max="${item.quantity}" />
+                                        </div>
+                                        <div class="pro-details-cart btn-hover">
+                                            <a th:href="@{/cart/{id}(id = ${item.id})}"> + Add To Cart</a>
+                                        </div>
+                                    </div>
+                                    <div class="pro-details-wish-com">
+                                        <div class="pro-details-wishlist">
+                                            <a th:href="@{/wishlist/{id}(id = ${item.id})}">
+                                                <i class="ion-android-favorite-outline"></i>Add to wishlist
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <div class="pro-details-social-info">
+                                        <span>Share</span>
+                                        <div class="social-info">
+                                            <ul th:replace="~{/common/social::ul}"></ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <script th:src="@{/js/vendor/jquery-3.5.1.min.js}"></script>
+        <script th:src="@{/js/vendor/modernizr-3.7.1.min.js}"></script>
+        <script th:src="@{/js/plugins/bootstrap.min.js}"></script>
+        <script th:src="@{/js/plugins/popper.min.js}"></script>
+        <script th:src="@{/js/plugins/meanmenu.js}"></script>
+        <script th:src="@{/js/plugins/owl-carousel.js}"></script>
+        <script th:src="@{/js/plugins/jquery.nice-select.js}"></script>
+        <script th:src="@{/js/plugins/countdown.js}"></script>
+        <script th:src="@{/js/plugins/elevateZoom.js}"></script>
+        <script th:src="@{/js/plugins/jquery-ui.min.js}"></script>
+        <script th:src="@{/js/plugins/slick.js}"></script>
+        <script th:src="@{/js/plugins/scrollup.js}"></script>
+        <script th:src="@{/js/plugins/range-script.js}"></script>
+        <script th:src="@{/js/plugins/fontawesome.min.js}" ></script>
+        <script th:src="@{/js/main.js}"></script>
+    </body>
+</html>
